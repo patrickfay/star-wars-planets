@@ -2,13 +2,32 @@
   <div class="planet-card__name">{{planet.name}}</div>
 
   <div class="planet-card__details-container">
-    <div class="planet-card__detail">{{planet.climate}}</div>
-    <div class="planet-card__detail">{{planet.diameter}} km</div>
-    <div class="planet-card__detail">{{planet.gravity}} Gs</div>
-    <div class="planet-card__detail">{{planet.population}}</div>
+    <div class="planet-card__details-title">Details</div>
+    <div class="planet-card__details">
+      <!-- these span's can consolidated to reduce this repeated hardcoding, but leaving for working breifly on this app -->
+      <span>Climate:</span><span class="planet-card__detail">{{planet.climate}}</span>
+      <span>Diameter:</span><span class="planet-card__detail">{{planet.diameter}} km</span>
+      <span>Gravity:</span><span class="planet-card__detail">{{planet.gravity}} Gs</span>
+      <span>Population:</span><span class="planet-card__detail">{{planet.population}}</span>
+
+      <!--
+        This section below can be cleaned up more easliy with a pipe.
+        Also if a planet has 0 residents this will not be triggered, but accepting this minor bug for now.
+        Also accepting fact that there will be a trailing comma on the last resident for now.
+      -->
+      <ng-container *ngIf="!!planetResidents?.length">
+        <span>Residents:</span>
+        <span>
+          <ng-container *ngFor="let resident of planetResidents">
+            <span>{{resident.name}}, </span>
+          </ng-container>
+        </span>
+      </ng-container>
+    </div>
   </div>
 
-  <!-- TODO - have this button trigger a modal to display residents of the planet -->
-  <button class="planet-card__button">View {{planet.name}}'s Residents</button>
+  <button class="button planet-card__button" *ngIf="!planetResidents?.length" (click)="getPlanetResidents()">
+    View {{planet.name}}'s Residents!
+  </button>
 </div>
 

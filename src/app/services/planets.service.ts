@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, first, map, tap } from 'rxjs';
-import { Planet } from '../models/planet.model';
+import { BehaviorSubject, Observable, first, forkJoin, map, tap } from 'rxjs';
+import { Planet, PlanetResident } from '../models/planet.model';
 
 interface ApiResponse<T> {
   count: number;
@@ -58,6 +58,7 @@ export class PlanetsService {
       )
       .subscribe();
   }
+
   /**
    * Fetches the initial list of planets, this is called on app component init
    */
@@ -81,5 +82,16 @@ export class PlanetsService {
     if (this.viewablePlanetsApiResp.value?.previous) {
       this.fetchPagePlanets(this.viewablePlanetsApiResp.value.previous!);
     }
+  }
+
+  /**
+   * Fetches a planet's residents.
+   * 
+   * @param residentsApiArr An array of api urls needed to get data related to an individiual resident
+   * @returns An Observable containing an array of all residents data
+   */
+  public fetchPlanetResidents(residentsApiArr: string[]): Observable<PlanetResident[]> {
+    const residents$ = residentsApiArr.map(residentApi => this.http.get<PlanetResident>(residentApi).pipe(first()));
+    return forkJoin(residents$);
   }
 }

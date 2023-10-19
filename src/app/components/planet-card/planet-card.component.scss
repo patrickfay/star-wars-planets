@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: .25rem;
+  gap: .75rem;
+  padding: .75rem .5rem;
   border-radius: .25rem;
   background-color: #f2f2f2;
 
@@ -13,7 +14,19 @@
   }
 
   &__details-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__details-title {
+    align-self: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &__details {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: .25rem;
   }
 }

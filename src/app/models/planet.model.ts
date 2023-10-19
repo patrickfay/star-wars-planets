@@ -5,6 +5,14 @@ export interface Planet {
   gravity: string;
   name: string;
   population: string;
+  residents: string[];
+
+  // not the best practice, but just an app for fun and adding this so we don't have to add all fields here
+  [key: string]: any;
+}
+
+export interface PlanetResident {
+  name: string;
 
   // not the best practice, but just an app for fun and adding this so we don't have to add all fields here
   [key: string]: any;
