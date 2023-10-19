@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+main {
+  font-family: arial;
+}
+
+.button {
+  padding: .5rem;
+  background-color: #fff;
+  border: solid 1px #939393;
+  border-radius: .25rem;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #eee;
+  }
+}

@@ -29,8 +29,15 @@ export class PlanetsService {
    * Returns the planets that will be viewed in the Planet List.
    * This getter is being used to display the planets in the template.
    */
-  public get currentPagePlanets(): Observable<Planet[]> {
+  public get currentPagePlanets$(): Observable<Planet[]> {
     return this.viewablePlanetsApiResp.asObservable().pipe(map(planetsApiResp => planetsApiResp?.results || [] as unknown as Planet[]));
+  }
+
+  /**
+   * Returns true if we are waiting for an api response to return planet data, else returns false
+   */
+  public get isLoading$(): Observable<boolean> {
+    return this.isLoadingPlanetData.asObservable();
   }
 
   /**
@@ -62,7 +69,7 @@ export class PlanetsService {
    * Fetches next page's planets when the user clicks 'Next' in the Planets List
    */
   public fetchNextPlanetsPage(): void {
-    if (this.viewablePlanetsApiResp.value) {
+    if (this.viewablePlanetsApiResp.value?.next) {
       this.fetchPagePlanets(this.viewablePlanetsApiResp.value.next!);
     }
   }
@@ -71,7 +78,7 @@ export class PlanetsService {
    * Fetches previous page's planets when the user clicks 'Previous' in the Planets List
    */
   public fetchPreviousPlanetsPage(): void {
-    if (this.viewablePlanetsApiResp.value) {
+    if (this.viewablePlanetsApiResp.value?.previous) {
       this.fetchPagePlanets(this.viewablePlanetsApiResp.value.previous!);
     }
   }

@@ -1,7 +1,16 @@
 <main>
   <div class="planets-list">
-    <ng-container *ngFor="let planet of planetsService.currentPagePlanets | async">
-      <sw-planet-card [planet]="planet"></sw-planet-card>
+    <ng-container *ngIf="!(planetsService.isLoading$ | async); else loading">
+      <ng-container *ngFor="let planet of planetsService.currentPagePlanets$ | async">
+        <sw-planet-card [planet]="planet"></sw-planet-card>
+      </ng-container>
     </ng-container>
+
+    <ng-template #loading>Loading...</ng-template>
+  </div>
+
+  <div class="paginator">
+    <button class="button paginator__button" (click)="viewPreviousPagesPlanets()">Previous</button>
+    <button class="button paginator__button" (click)="viewNextPagesPlanets()">Next</button>
   </div>
 </main>
