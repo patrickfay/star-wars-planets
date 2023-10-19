@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanetsService } from './services/planets.service';
+import { Planet } from './constants/planet.model';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { PlanetsService } from './services/planets.service';
 })
 export class AppComponent implements OnInit {
 
-  public planets: any[] = [];
+  public planets: Planet[] = [];
 
   constructor(private planetsService: PlanetsService) {}
 

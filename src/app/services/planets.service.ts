@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, first, map } from 'rxjs';
+import { Planet } from '../constants/planet.model';
 
 interface ApiResponse<T> {
   count: number;
@@ -16,8 +17,8 @@ export class PlanetsService {
 
   constructor(private http: HttpClient) {}
 
-  public getPlanets(): Observable<any[]> {
-    return this.http.get<ApiResponse<any>>('https://swapi.dev/api/planets/')
+  public getPlanets(): Observable<Planet[]> {
+    return this.http.get<ApiResponse<Planet>>('https://swapi.dev/api/planets/')
       .pipe(
         first(),
         map(planetsResponse => planetsResponse.results)
