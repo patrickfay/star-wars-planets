@@ -1,7 +1,7 @@
 <main>
   <div class="planets-list">
-    <div class="planets-list__item" *ngFor="let planet of planets">
-      {{planet.name}}
-    </div>
+    <ng-container *ngFor="let planet of planets">
+      <sw-planet-card [planet]="planet"></sw-planet-card>
+    </ng-container>
   </div>
 </main>

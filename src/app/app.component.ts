@@ -14,7 +14,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.planetsService.getPlanets().subscribe({
-      next: planetsResponse => this.planets = planetsResponse
+      // TODO - uncomment out and remove console.log
+      // next: planetsResponse => this.planets = planetsResponse
+      next: planetsResponse => {
+        this.planets = planetsResponse;
+        console.log('PLANETS', planetsResponse);
+      }
     });
   }
 }
