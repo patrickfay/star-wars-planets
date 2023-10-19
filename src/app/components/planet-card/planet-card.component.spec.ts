@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { PlanetCardComponent } from './planet-card.component';
 
@@ -8,10 +9,18 @@ describe('PlanetCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PlanetCardComponent]
+      imports: [PlanetCardComponent, HttpClientModule],
     });
     fixture = TestBed.createComponent(PlanetCardComponent);
     component = fixture.componentInstance;
+    component.planet = {
+      name: 'test',
+      climate: 'cold',
+      diameter: '1000',
+      gravity: '2',
+      population: '10',
+      residents: ['fake/api']
+    };
     fixture.detectChanges();
   });
 
