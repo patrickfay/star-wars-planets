@@ -1,0 +1,15 @@
+.planets-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem;
+  margin-top: 10vh;
+  border: solid 1px #2d2d2d;
+  border-radius: .25rem;
+  background-color: white;
+
+  &__item {
+    border: solid 1px gold;
+    padding: .25rem;
+    margin: .75rem;
+  }
+}
