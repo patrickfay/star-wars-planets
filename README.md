@@ -1,27 +1,13 @@
-# StarWarsPlanets
+# Star Wars Planets
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+Hey, welcome to the Star War Planets app! This will just be a basic Angular app that'll display the names of star wars planets and allow the user to view some specific info about each planet. Check out the instructions below to get this app up and running!
 
-## Development server
+## Running this App
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To run this Angular app, you'll need to be on Node `v16.14.2`. Once you have that setup, run a trusty `npm install`. After that you'll only need to run the command below to build and serve the application
 
-## Code scaffolding
+```
+npm run start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Once you've run that command you can open your browser and open `http://localhost:4200/` to view the running application
