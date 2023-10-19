@@ -1,3 +1,7 @@
+body {
+  background-color: #151515;
+}
+
 main {
   font-family: arial;
 }
@@ -5,7 +9,7 @@ main {
 .button {
   padding: .5rem;
   background-color: #fff;
-  border: solid 1px #939393;
+  border: none;
   border-radius: .25rem;
 
   &:hover {
