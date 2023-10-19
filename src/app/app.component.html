@@ -1,6 +1,6 @@
 <main>
   <div class="planets-list">
-    <ng-container *ngFor="let planet of planets">
+    <ng-container *ngFor="let planet of planetsService.currentPagePlanets | async">
       <sw-planet-card [planet]="planet"></sw-planet-card>
     </ng-container>
   </div>
