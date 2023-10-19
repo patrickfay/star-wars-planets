@@ -10,4 +10,4 @@ To run this Angular app, you'll need to be on Node `v16.14.2`. Once you have tha
 npm run start
 ```
 
-Once you've run that command you can open your browser and open `http://localhost:4200/` to view the running application
+Once you've run that command you can open your browser and navigate to `http://localhost:4200/` to view the running application
